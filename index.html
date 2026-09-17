@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="theme-color" content="#071633">
+  <title>GamePix AI - Free Online Games & Photo Editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <div class="logo" onclick="showHome()"><span class="logo-mark">▶</span><span>GamePix <b>AI</b></span></div>
+  <div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search games..."></div>
+  <button class="top-icon" id="favBtn">♡</button>
+  <button class="top-icon" id="editorBtn">📷</button>
+</header>
+<nav class="category-bar">
+  <button class="cat active" data-cat="all">All Games</button>
+  <button class="cat" data-cat="arcade">🕹 Arcade</button>
+  <button class="cat" data-cat="racing">🏎 Racing</button>
+  <button class="cat" data-cat="sports">⚽ Sports</button>
+  <button class="cat" data-cat="puzzle">🧩 Puzzle</button>
+  <button class="cat" data-cat="skill">🎯 Skill</button>
+  <button class="cat" data-cat="action">⚔ Action</button>
+  <button class="cat" data-cat="brain">🧠 Brain</button>
+</nav>
+<main id="app">
+<section id="homePage">
+  <section class="hero"><div class="hero-bg"></div><div class="hero-content">
+    <span class="badge">🔥 FEATURED GAME</span><h1 id="heroTitle">Neon Racer</h1>
+    <p>Fast, exciting browser gaming. Play instantly on mobile, tablet or PC.</p>
+    <div class="rating">★★★★★ <small>4.8 / 5</small></div>
+    <button class="play-btn" id="heroPlay">▶ Play Now</button>
+  </div></section>
+  <section class="section"><div class="section-title"><h2>🔥 Trending Games</h2><button onclick="setCategory('all')">View all ›</button></div><div class="game-row" id="trendingGames"></div></section>
+  <section class="section"><div class="section-title"><h2>🎮 All Games</h2><span id="gameCount"></span></div><div class="games-grid" id="gamesGrid"></div></section>
+</section>
+<section id="gamePage" class="hidden">
+  <div class="game-header"><button class="back-btn" onclick="showHome()">← Back</button><div><h1 id="gameTitle">Game</h1><span id="gameCategory"></span></div><button id="fullscreenBtn" class="small-btn">⛶</button></div>
+  <div class="player-wrap"><div id="gameStage" class="game-stage"></div></div>
+  <div class="game-controls"><button id="restartBtn">🔄 Restart</button><button id="pauseBtn">⏸ Pause</button><button id="fullBtn">⛶ Fullscreen</button></div>
+</section>
+<section id="editorPage" class="hidden">
+  <div class="editor-header"><button class="back-btn" onclick="showHome()">← Back</button><h1>📷 Photo Editor</h1><span>60+ Filters</span></div>
+  <div class="editor-box">
+    <label class="upload-btn">📤 Upload Photo<input id="photoInput" type="file" accept="image/*" hidden></label>
+    <div class="main-photo-area"><div id="photoPlaceholder"><div class="big-camera">📷</div><h2>Upload your photo</h2><p>Your photo stays in your browser.</p></div><img id="mainPhoto" class="main-photo hidden" alt="Photo preview"></div>
+    <div class="editor-tools">
+      <label>Brightness<input id="brightness" type="range" min="50" max="150" value="100"></label>
+      <label>Contrast<input id="contrast" type="range" min="50" max="150" value="100"></label>
+      <label>Saturation<input id="saturation" type="range" min="0" max="200" value="100"></label>
+    </div>
+    <div class="filter-heading"><h2>Filters</h2><span>Swipe →</span></div>
+    <div id="filterStrip" class="filter-strip"></div>
+    <div class="editor-actions"><button id="resetPhoto">↺ Reset</button><button id="downloadPhoto" class="download-btn">⬇ Download</button></div>
+  </div>
+</section>
+</main>
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
